@@ -1,0 +1,32 @@
+body{
+  background: #000;
+    }
+
+h3{
+  font-size: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color:#ccc;
+}
+
+.container{
+  max-width:840px;
+  margin: 0 auto;
+}
+
+.block{
+  width: 96px;
+  height: 96px;
+  border: 2px solid #ccc;
+  background: #5F9EA0;
+  float:left;
+}
+
+.undef{
+  background: #333;
+}
+
+.shower{
+  display:block;
+  transition: 2s;
+}
