@@ -18,6 +18,7 @@ $(function() {
             h = data["height"],
             field = w * h,
             half_field = field / 2;
+        console.log(w + " " + h + " " + half_field);
 
         // container width
         $('.container').width(w * 60 + 'px');
@@ -33,7 +34,10 @@ $(function() {
 
         // push img.src to 1st half of array
         for (let i = 0; i < half_field; i++) {
-            arr1.push(i);
+            arr1.push({
+                id: i,
+                value: img_array[i]
+            });
         }
 
         // arr2 = 2nd half of array (copy and sort of arr1)
@@ -43,12 +47,12 @@ $(function() {
 
         // insert images to container
         for (let l = 0; l < arr.length; l++) {
-            $('.container').append('<div class="block" id="id' + l + '"><img src="https://kde.link/test/' + arr[l] + '.png" class="hidden" data-id="' + arr[l] + '" alt=""></div>');
+            $('.container').append('<div class="block" id="id' + l + '"><img src="' + arr[l]["value"] + '" class="hidden" data-id="' + arr[l]["id"] + '" alt=""></div>');
         }
 
-        // max 10 images
+        // if image is broken or does not exist
         $('.block').each(function() {
-            if ($(this).find('img').data('id') > 9) {
+            if ($(this).find('img').attr('src') == "undefined") {
                 $(this).addClass('undef');
             }
         });
@@ -96,7 +100,6 @@ $(function() {
         for (let l = 0; l < field; l++) {
             $('.block').eq(l).on('click', coincide);
         }
-
 
     }); //getJson
 });
