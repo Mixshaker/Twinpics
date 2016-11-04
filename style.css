@@ -22,10 +22,14 @@ h3 {
 
 .block {
   float: left;
-  width: 96px;
-  height: 96px;
-  border: 2px solid #5f9ea0;
+  width: 58px;
+  height: 58px;
+  border: 1px solid #5f9ea0;
   background: #00ffa9;
+}
+
+.block img{
+  width: 58px;
 }
 
 .block:hover {
@@ -40,6 +44,6 @@ h3 {
   cursor: default;
 }
 
-.hidden{
-  display:none;
+.hidden {
+  display: none;
 }
