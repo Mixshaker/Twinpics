@@ -57,35 +57,42 @@ $(function() {
             sel, //selected element
             selid = 0, //selected id
             steps = 0,
-            open = 0;
+            open = 0
 
-        //coincide func
-        function coincide(e) {
+        //
+        function qwe(e) {
+            // let el = e.target.firstChild;
             let el = $(e.target).children();
+            // if (el.className.indexOf('hidden') > -1) {
             if ($(el).hasClass('hidden') > -1) {
                 steps++;
+                // el.className = el.className.replace('hidden', '');
                 $(el).removeClass('hidden');
 
-                let timeOutClick = function() {
+                function timeOutClick() {
                     //if click on 2nd image in the pair
                     if (check) {
                         check = false;
                         // if images coincide
+                        // if (el.getAttribute('data-id') == selid) {
                         if ($(el).attr('data-id') == selid) {
                             open++;
                             if (open == field / 2) alert('Вы прошли игру за ' + steps + ' шагов.');
                         } else {
                             //hide block
+                            // sel.className += ' hidden';
+                            // el.className += ' hidden';
                             $(sel).addClass('hidden');
                             $(el).addClass('hidden');
                         }
                     } else {
                         //if click on 1st image in the pair
+                        // selid = el.getAttribute('data-id');
                         selid = $(el).attr('data-id');
                         sel = el;
                         check = true;
                     }
-                };
+                }
 
                 // timeout to see image on clicked block
                 setTimeout(timeOutClick, 100);
@@ -94,9 +101,9 @@ $(function() {
 
         //Click Listener
         for (let l = 0; l < field; l++) {
-            $('.block').eq(l).on('click', coincide);
+            $('.block').eq(l).on('click', qwe);
         }
 
 
     }); //getJson
-});
+})
