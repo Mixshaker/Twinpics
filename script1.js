@@ -1,7 +1,5 @@
-'use strict';
-
 $(function() {
-    let field_width,
+    var field_width,
         field_height,
         img_array = ['https://kde.link/test/1.png',
             'https://kde.link/test/2.png',
@@ -16,20 +14,24 @@ $(function() {
         ];
 
     $.getJSON("https://kde.link/test/get_field_size.php", function(data) {
-        let w = data["width"],
+        var w = data["width"],
             h = data["height"],
             box_size = w * h,
             half_box_size = box_size / 2;
 
+        console.log(w);
+        console.log(h);
+        console.log(half_box_size);
+
         // container width
         $('.container').width(w * 100 + 'px');
 
-        let array1 = [],
+        var array1 = [],
             array2 = [],
             array3 = []; // arrays
 
         // push img.src to 1st half of array
-        for (let i = 0; i < half_box_size; i++) {
+        for (var i = 0; i < half_box_size; i++) {
             array1.push(i);
         }
 
@@ -44,8 +46,13 @@ $(function() {
         array2.sort(compareRandom);
         array3 = array1.concat(array2);
 
+        console.log(array1);
+        console.log(array2);
+        console.log(array3);
+
         // insert images to container
-        for (let l = 0; l < array3.length; l++) {
+        var l, len;
+        for (l = 0, len = array3.length; l < len; l++) {
             $('.container').append('<div class="block" id="id' + l + '"><img src="https://kde.link/test/' + array3[l] + '.png" data-id="' + array3[l] + '" alt=""></div>');
         }
 
@@ -58,36 +65,44 @@ $(function() {
 
         // hide img at start
         $('.block img').each(function() {
-            $(this).addClass('hidden');
+            $(this).hide();
         });
 
+        $('[id^="id"]').on('click', function() {
+            $(this).find('img').toggle();
+            $(this).find('img').toggleClass('open1');
 
-        let check = false,
+            // take img1 id & img2 id & compare them
+            var img1_id = $(this).find('img').data('id');
+            console.log(img1_id);
+        });
+
+        // test
+
+        var check = false,
             selcolor = 0,
             sela, steps = 0,
             open = 0,
             timer,
-            a = document.getElementsByClassName('block');
-        for (let i = 0; i < a.length; i++) {
-            a[i].addEventListener('click', function(e) {
-                let el = e.target.firstChild;
+            a = document.getElementsByTagName('a');
+        for (var i = 0; i < array3.length; i++) {
+            array3[i].addEventListener('click', function(e) {
+                var el = e.target;
                 if (el.className.indexOf('hidden') > -1) {
                     steps++;
                     el.className = el.className.replace('hidden', '');
                     setTimeout(function() {
                         if (check) {
                             check = false;
-                            // if images coincide
-                            if (el.getAttribute('data-id') == selcolor) {
+                            if (el.getAttribute('color') == selcolor) {
                                 open++;
                                 if (open == 8) alert('You win! Steps: ' + steps);
                             } else {
-                                //hide block
                                 sela.className += ' hidden';
                                 el.className += ' hidden';
                             }
                         } else {
-                            selcolor = el.getAttribute('data-id');
+                            selcolor = el.getAttribute('color');
                             sela = el;
                             check = true;
                         }

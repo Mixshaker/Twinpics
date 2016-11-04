@@ -1,32 +1,45 @@
-body{
-  background: #000;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  background: -webkit-linear-gradient(rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%);
+  background:         linear-gradient(rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%);
+  background-repeat: no-repeat;
 
-h3{
-  font-size: 2em;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  color:#ccc;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 );
 }
 
-.container{
-  max-width:840px;
+h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2em;
+  text-align: center;
+  color: #ccc;
+}
+
+.container {
+  max-width: 840px;
   margin: 0 auto;
 }
 
-.block{
+.block {
+  float: left;
   width: 96px;
   height: 96px;
-  border: 2px solid #ccc;
-  background: #5F9EA0;
-  float:left;
+  border: 2px solid #5f9ea0;
+  background: #00ffa9;
 }
 
-.undef{
-  background: #333;
+.block:hover {
+  cursor: pointer;
 }
 
-.shower{
-  display:block;
-  transition: 2s;
+.undef {
+  background: #2d2d2d;
+}
+
+.undef:hover {
+  cursor: default;
+}
+
+.hidden{
+  display:none;
 }
