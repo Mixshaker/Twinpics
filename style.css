@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  min-height: 95%;
   margin: 0;
   padding: 0;
   background: -webkit-linear-gradient(rgba(30,87,153,1) 0%, rgba(125,185,232,0) 100%);
@@ -10,7 +11,6 @@ body {
   background-repeat: no-repeat;
 
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#007db9e8',GradientType=0 );
-  min-height: 95%;
 }
 
 h3 {
@@ -27,13 +27,15 @@ h3 {
 
 .block {
   float: left;
-  width: 58px;
-  height: 58px;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+  width: 60px;
+  height: 60px;
   border: 1px solid #5f9ea0;
   background: #00ffa9;
 }
 
-.block img{
+.block img {
   width: 58px;
 }
 

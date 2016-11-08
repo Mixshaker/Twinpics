@@ -1,19 +1,19 @@
 "use strict";
 
 $(function() {
-    let img_array = ["https://kde.link/test/1.png",
-        "https://kde.link/test/2.png",
-        "https://kde.link/test/9.png",
-        "https://kde.link/test/7.png",
-        "https://kde.link/test/6.png",
-        "https://kde.link/test/3.png",
-        "https://kde.link/test/4.png",
-        "https://kde.link/test/0.png",
-        "https://kde.link/test/5.png",
-        "https://kde.link/test/8.png"
+    let img_array = ["http://mixshaker.pp.ua/twinpics/test/1.png",
+        "http://mixshaker.pp.ua/twinpics/test/2.png",
+        "http://mixshaker.pp.ua/twinpics/test/9.png",
+        "http://mixshaker.pp.ua/twinpics/test/7.png",
+        "http://mixshaker.pp.ua/twinpics/test/6.png",
+        "http://mixshaker.pp.ua/twinpics/test/3.png",
+        "http://mixshaker.pp.ua/twinpics/test/4.png",
+        "http://mixshaker.pp.ua/twinpics/test/0.png",
+        "http://mixshaker.pp.ua/twinpics/test/5.png",
+        "http://mixshaker.pp.ua/twinpics/test/8.png"
     ];
 
-    $.getJSON("https://kde.link/test/get_field_size.php", function(data) {
+    $.getJSON("http://mixshaker.pp.ua/twinpics/get_field_size.php", function(data) {
         let w = data["width"],
             h = data["height"],
             field = w * h,
