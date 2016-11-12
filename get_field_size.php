@@ -1,6 +1,6 @@
 <?php
-$width = random_int(2, 8);
-$height = random_int(2, 8);
+$width = random_int(2, 6);
+$height = random_int(2, 6);
 
 if (($width % 2) != 0 && ($height % 2) != 0){
  $width++;
